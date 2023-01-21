@@ -12,7 +12,6 @@ import datetime
 
 import requests
 
-
 ABSTRACTAPI_URL = (
     'https://timezone.abstractapi.com/v1/current_time/?'
     'api_key=30a9c393ff8c4585bec59a8a02cfe5be&location='
@@ -37,6 +36,7 @@ def find_city():
         'name': city_name,
     }
 
+
 def get_local_time(
     gmt_offset,
     current_utc_time=datetime.datetime.now(datetime.timezone.utc)
@@ -52,9 +52,11 @@ def get_local_time(
         current_utc_time + datetime.timedelta(hours=gmt_offset)
     ).strftime('%H:%M')
 
+
 def show_cities_list(cities):
     for city_name in sorted(cities):
         print(f'{city_name}: {get_local_time(cities[city_name])}')
+
 
 def show_menu():
     print(
